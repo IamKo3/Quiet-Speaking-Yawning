@@ -1,12 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 from scipy.spatial import distance as dist
-from imutils.video import FileVideoStream
-from imutils.video import VideoStream
 from imutils import face_utils
 import numpy as np
 import argparse
@@ -14,10 +6,6 @@ import imutils
 import time
 import dlib
 import cv2
-
-
-# In[2]:
-
 
 def mouth_aspect_ration(mouth):
     # Vertical distance
@@ -31,28 +19,15 @@ def mouth_aspect_ration(mouth):
     return mar
 
 
-# In[3]:
-
-
 FRAMES = 100
 
-
-# In[4]:
 
 
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor('facial_landmarks.dat')
 
-
-# In[5]:
-
-
-(lStart, lEnd) = face_utils.FACIAL_LANDMARKS_IDXS["left_eye"]
-(rStart, rEnd) = face_utils.FACIAL_LANDMARKS_IDXS["right_eye"]
+# extract mouth coordinates
 (mouthStart,mouthEnd) = face_utils.FACIAL_LANDMARKS_IDXS["mouth"]
-
-
-# In[6]:
 
 
 COUNTER = 0
@@ -150,7 +125,7 @@ while True:
         plt.show()
         """   
         
-        # reinitialize
+        # reinitialize for replotting
         m = []
         #end of if        
     
